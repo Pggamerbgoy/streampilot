@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamPilot AI — Your AI Co-Pilot for YouTube Success</title>
+  <meta name="description" content="AI-powered YouTube channel management platform for creators of all sizes.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">🚀</div>
+    <div>
+      <h1>StreamPilot</h1>
+      <span>AI Co-Pilot</span>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-title">Main</div>
+    <div class="nav-item active" data-page="dashboard">
+      <span class="icon">🎛️</span> Command Center
+    </div>
+    <div class="nav-item" data-page="analytics">
+      <span class="icon">📊</span> Analytics <span class="badge">Live</span>
+    </div>
+    <div class="nav-item" data-page="optimizer">
+      <span class="icon">🧠</span> Content Optimizer
+    </div>
+    <div class="nav-item" data-page="seo">
+      <span class="icon">🔍</span> SEO Center
+    </div>
+    <div class="nav-section-title">Livestream</div>
+    <div class="nav-item" data-page="livestream">
+      <span class="icon">🔴</span> Stream Manager
+    </div>
+    <div class="nav-item" data-page="streamsetup">
+      <span class="icon">⚙️</span> Stream Setup
+    </div>
+    <div class="nav-section-title">Content</div>
+    <div class="nav-item" data-page="optimizer">
+      <span class="icon">✨</span> Content Optimizer <span class="badge">AI</span>
+    </div>
+    <div class="nav-item" data-page="calendar">
+      <span class="icon">📅</span> Content Calendar
+    </div>
+    <div class="nav-item" data-page="pipeline">
+      <span class="icon">🔄</span> Content Pipeline
+    </div>
+    <div class="nav-item" data-page="shorts">
+      <span class="icon">📱</span> Shorts Strategy
+    </div>
+    <div class="nav-section-title">Growth</div>
+    <div class="nav-item" data-page="competitors">
+      <span class="icon">🎯</span> Competitor Radar <span class="badge">New</span>
+    </div>
+    <div class="nav-item" data-page="simulator">
+      <span class="icon">🔮</span> Growth Simulator
+    </div>
+    <div class="nav-item" data-page="community">
+      <span class="icon">🤝</span> Community Hub
+    </div>
+    <div class="nav-item" data-page="monetization">
+      <span class="icon">💰</span> Monetization
+    </div>
+    <div class="nav-item" data-page="safety">
+      <span class="icon">🛡️</span> Channel Safety
+    </div>
+    <div class="nav-section-title">AI</div>
+    <div class="nav-item" data-page="assistant">
+      <span class="icon">🤖</span> AI Assistant
+    </div>
+  </nav>
+</aside>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="search-box">
+    <span class="search-icon">🔎</span>
+    <input type="text" placeholder="Search anything... videos, keywords, analytics" id="globalSearch">
+    <kbd>Ctrl+K</kbd>
+  </div>
+  <div class="topbar-actions">
+    <button class="topbar-btn" title="Notifications">🔔<span class="notif-dot"></span></button>
+    <button class="topbar-btn" title="Quick Actions">⚡</button>
+    <div class="user-avatar" title="Profile">KA</div>
+  </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="main-content">
+
+  <!-- ===== DASHBOARD ===== -->
+  <section class="page active" id="page-dashboard">
+    <div class="page-header">
+      <h2>🎛️ Command Center</h2>
+      <p>Good evening, Kamit. Here's your channel overview.</p>
+    </div>
+
+    <div class="ai-briefing" id="aiBriefing">
+      <div class="briefing-title">🤖 AI Daily Briefing</div>
+      <p id="briefingText">Loading AI analysis...</p>
+    </div>
+
+    <div class="stats-grid" id="mainStats"></div>
+
+    <div class="grid-7-3">
+      <div class="glass-card">
+        <div class="card-header">
+          <h3>📈 Views & Subscribers (30 Days)</h3>
+          <span class="card-badge">Kalman Filtered</span>
+        </div>
+        <div class="chart-container"><canvas id="mainChart"></canvas></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header">
+          <h3>🏥 Channel Health</h3>
+          <span class="card-badge">AI Score</span>
+        </div>
+        <div class="health-ring" id="healthRing"></div>
+        <div id="healthBreakdown"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="glass-card">
+        <div class="card-header"><h3>🔥 Top Performing Videos</h3></div>
+        <table class="data-table" id="topVideosTable"><thead><tr><th>Video</th><th>Views</th><th>CTR</th><th>Revenue</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>⚡ AI Suggestions</h3></div>
+        <div id="aiSuggestions"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANALYTICS ===== -->
+  <section class="page" id="page-analytics">
+    <div class="page-header">
+      <h2>📊 Advanced Analytics</h2>
+      <p>AI-powered insights with research-grade mathematical models.</p>
+    </div>
+    <div class="stats-grid" id="analyticsStats"></div>
+    <div class="grid-2">
+      <div class="glass-card">
+        <div class="card-header"><h3>🔄 Audience Retention Curve</h3><span class="card-badge">Kaplan-Meier Survival</span></div>
+        <div class="chart-container"><canvas id="retentionChart"></canvas></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>🌊 Traffic Sources</h3></div>
+        <div class="chart-container"><canvas id="trafficChart"></canvas></div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="glass-card">
+        <div class="card-header"><h3>🌍 Geographic Distribution</h3></div>
+        <div id="geoData"></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>📱 Device Analytics</h3></div>
+        <div class="chart-container"><canvas id="deviceChart"></canvas></div>
+      </div>
+    </div>
+    <div class="glass-card">
+      <div class="card-header"><h3>💡 AI Insight Cards</h3><span class="card-badge">Pattern Recognition</span></div>
+      <div id="insightCards"></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT OPTIMIZER ===== -->
+  <section class="page" id="page-optimizer">
+    <div class="page-header">
+      <h2>🧠 Content Optimizer</h2>
+      <p>Give AI your video and context. StreamPilot packages it, publishes it, and queues the next channel actions.</p>
+    </div>
+    <div class="glass-card" style="margin-bottom:24px">
+      <div class="card-header"><h3>🎬 AI Autopilot Upload</h3><span class="card-badge">Public by default</span></div>
+      <input class="optimizer-input" id="videoTopic" placeholder='e.g. "RTX 5090 review" or "God of War gameplay"'>
+      <div class="autopilot-grid">
+        <label class="file-drop">
+          <span>Video file</span>
+          <input type="file" id="videoFile" accept="video/*">
+          <small id="videoFileName">Required for publish</small>
+        </label>
+        <label class="file-drop">
+          <span>Thumbnail</span>
+          <input type="file" id="thumbnailFile" accept="image/*">
+          <small id="thumbnailFileName">Optional custom image</small>
+        </label>
+      </div>
+      <div class="autopilot-flags">
+        <label><input type="checkbox" id="madeForKids"> Made for kids</label>
+        <label><input type="checkbox" id="containsSyntheticMedia"> Contains realistic synthetic media</label>
+      </div>
+      <div class="autopilot-actions">
+        <button class="btn btn-primary" id="btnOptimize">🚀 Generate Everything</button>
+        <button class="btn btn-primary" id="btnAnalyzeVideo">🛡️ Scan First 30s</button>
+        <button class="btn btn-success" id="btnAutoUpload">📤 AI Publish Publicly</button>
+        <button class="btn btn-danger risk-action" id="btnApplyFixPublish" style="display:none">🛠️ Apply Fix & Publish</button>
+        <button class="btn btn-danger risk-action" id="btnConfirmRisk" style="display:none">⚠️ Confirm Risk & Publish</button>
+        <button class="btn btn-danger" id="btnAutoStream">🔴 Setup Livestream</button>
+      </div>
+      <div class="autopilot-status" id="autopilotStatus"></div>
+    </div>
+    <div class="glass-card" style="margin-bottom:24px">
+      <div class="card-header"><h3>🧬 AI Training & Trend Radar</h3><span class="card-badge">Live prediction</span></div>
+      <div class="autopilot-grid">
+        <input class="optimizer-input" id="predictVideoId" placeholder="YouTube video ID for live prediction">
+        <input class="optimizer-input" id="trendRegion" placeholder="Trend region, e.g. US or IN" value="US">
+      </div>
+      <div class="autopilot-flags">
+        <label><input type="checkbox" id="useRealYouTubeData"> Use Real YouTube Data</label>
+      </div>
+      <div class="autopilot-actions">
+        <button class="btn btn-primary" id="btnTrainAI">🧠 Train AI Brain</button>
+        <button class="btn btn-success" id="btnPredictVideo">📈 Predict Video Now</button>
+        <button class="btn btn-primary" id="btnScanTrends">🔥 Scan Trending Videos</button>
+      </div>
+      <div class="autopilot-actions" style="margin-top:10px">
+        <button class="btn btn-secondary" id="btnCollectTrainingData">Collect Data</button>
+        <button class="btn btn-primary" id="btnRetrainModel">Retrain Candidate</button>
+        <button class="btn btn-secondary" id="btnTrainingStatus">Training Status</button>
+        <button class="btn btn-success" id="btnPromoteModel">Promote Candidate</button>
+      </div>
+      <div class="autopilot-status" id="opsStatus"></div>
+      <div id="intelligenceOpsResults" style="margin-top:14px"></div>
+      <div id="trainingLabResults" style="margin-top:14px"></div>
+    </div>
+    <div id="optimizerResults" style="display:none">
+      <div class="grid-2">
+        <div class="glass-card"><div class="card-header"><h3>📝 AI Titles</h3><span class="card-badge">CTR Optimized</span></div><div id="titleResults"></div></div>
+        <div class="glass-card"><div class="card-header"><h3>📄 Description</h3><span class="card-badge">SEO Score</span></div><div id="descResults"></div></div>
+      </div>
+      <div class="grid-2">
+        <div class="glass-card"><div class="card-header"><h3>🏷️ Tags</h3><span class="card-badge">Quantum Portfolio</span></div><div id="tagResults"></div></div>
+        <div class="glass-card"><div class="card-header"><h3>📋 Full Checklist</h3></div><div id="checklistResults"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEO CENTER ===== -->
+  <section class="page" id="page-seo">
+    <div class="page-header">
+      <h2>🔍 SEO Command Center</h2>
+      <p>YouTube-specific keyword research & ranking tracker.</p>
+    </div>
+    <div class="glass-card" style="margin-bottom:24px">
+      <input class="optimizer-input" id="seoKeyword" placeholder="Enter a keyword to research...">
+      <button class="btn btn-primary" id="btnSeoSearch">🔍 Analyze Keyword</button>
+    </div>
+    <div id="seoResults" style="display:none">
+      <div class="stats-grid" id="seoStats"></div>
+      <div class="grid-2">
+        <div class="glass-card"><div class="card-header"><h3>🎯 Related Keywords</h3></div><div id="relatedKeywords"></div></div>
+        <div class="glass-card"><div class="card-header"><h3>📊 Search Trend</h3></div><div class="chart-container"><canvas id="seoTrendChart"></canvas></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LIVESTREAM ===== -->
+  <section class="page" id="page-livestream">
+    <div class="page-header">
+      <h2>🔴 Livestream Command Center</h2>
+      <p>Real-time stream monitoring with AI chat management.</p>
+    </div>
+    <div class="grid-7-3">
+      <div class="glass-card">
+        <div class="card-header"><h3><span class="live-dot"></span> Stream Monitor</h3><span class="card-badge" id="obsLiveBadge">OBS</span></div>
+        <div class="chart-container"><canvas id="streamChart"></canvas></div>
+        <div class="stats-grid" id="streamStats" style="margin-top:16px"></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>💬 Chat AI</h3></div>
+        <div id="liveChatFeed" style="height:300px;overflow-y:auto;margin-bottom:12px"></div>
+        <div id="chatSentiment"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STREAM SETUP ===== -->
+  <section class="page" id="page-streamsetup">
+    <div class="page-header">
+      <h2>⚙️ Livestream Setup Wizard</h2>
+      <p>Tell AI what you want to stream — it sets up everything.</p>
+    </div>
+    <div class="glass-card" style="margin-bottom:24px">
+      <div class="autopilot-grid">
+        <input class="optimizer-input" id="obsHost" placeholder="OBS host" value="127.0.0.1">
+        <input class="optimizer-input" id="obsPort" placeholder="4455" value="4455">
+        <input class="optimizer-input" id="obsPassword" type="password" placeholder="OBS password">
+        <input class="optimizer-input" id="streamGame" placeholder='e.g. "God of War Ragnarok" or "Just Chatting"'>
+      </div>
+      <div class="autopilot-actions">
+        <button class="btn btn-primary" id="btnObsConnect">Connect OBS</button>
+        <button class="btn btn-secondary" id="btnObsRefresh">Refresh Studio</button>
+        <button class="btn btn-secondary" id="btnObsDisconnect">Disconnect</button>
+        <button class="btn btn-danger" id="btnSetupStream">AI Studio Setup</button>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:24px">
+      <div class="glass-card">
+        <div class="card-header"><h3>OBS Status</h3><span class="card-badge" id="obsConnectionBadge">Disconnected</span></div>
+        <div id="obsStatusPanel"></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>Output Controls</h3><span class="card-badge">Confirm live actions</span></div>
+        <div id="obsOutputControls"></div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-bottom:24px">
+      <div class="glass-card">
+        <div class="card-header"><h3>Scenes & Sources</h3><span class="card-badge">OBS</span></div>
+        <div id="obsSceneControls"></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>Live Events</h3><span class="card-badge">SSE</span></div>
+        <div id="obsAudioMeters"></div>
+        <div id="obsEventFeed" style="max-height:260px;overflow-y:auto;margin-top:10px"></div>
+      </div>
+    </div>
+    <div id="streamSetupResults" style="display:none"></div>
+  </section>
+
+  <!-- ===== CALENDAR ===== -->
+  <section class="page" id="page-calendar">
+    <div class="page-header">
+      <h2>📅 Content Calendar</h2>
+      <p>AI-optimized upload schedule.</p>
+    </div>
+    <div class="glass-card">
+      <div class="card-header"><h3>June 2026</h3><span class="card-badge">QAOA Optimized</span></div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===== SHORTS ===== -->
+  <section class="page" id="page-shorts">
+    <div class="page-header">
+      <h2>📱 Shorts Strategy Center</h2>
+      <p>AI-powered Shorts optimization with trending analysis.</p>
+    </div>
+    <div class="stats-grid" id="shortsStats"></div>
+    <div class="glass-card">
+      <div class="card-header"><h3>🎵 Trending Sounds</h3></div>
+      <div id="trendingSounds"></div>
+    </div>
+  </section>
+
+  <!-- ===== COMMUNITY ===== -->
+  <section class="page" id="page-community">
+    <div class="page-header">
+      <h2>🤝 Community Hub</h2>
+      <p>AI-managed comments and engagement.</p>
+    </div>
+    <div class="stats-grid" id="communityStats"></div>
+    <div class="glass-card">
+      <div class="card-header"><h3>💬 Recent Comments</h3><span class="card-badge">AI Categorized</span></div>
+      <div id="commentsFeed"></div>
+    </div>
+  </section>
+
+  <!-- ===== MONETIZATION ===== -->
+  <section class="page" id="page-monetization">
+    <div class="page-header">
+      <h2>💰 Monetization Suite</h2>
+      <p>Unified revenue tracking with AI optimization.</p>
+    </div>
+    <div class="stats-grid" id="moneyStats"></div>
+    <div class="grid-2">
+      <div class="glass-card">
+        <div class="card-header"><h3>📈 Revenue Trend</h3><span class="card-badge">Holt-Winters Forecast</span></div>
+        <div class="chart-container"><canvas id="revenueChart"></canvas></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>💎 Revenue Breakdown</h3></div>
+        <div class="chart-container"><canvas id="revBreakdownChart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SAFETY ===== -->
+  <section class="page" id="page-safety">
+    <div class="page-header">
+      <h2>🛡️ Channel Safety & Compliance</h2>
+      <p>Proactive protection for your channel.</p>
+    </div>
+    <div class="stats-grid" id="safetyStats"></div>
+    <div class="glass-card">
+      <div class="card-header"><h3>🔍 Recent Scans</h3></div>
+      <div id="safetyScans"></div>
+    </div>
+  </section>
+
+  <!-- ===== COMPETITOR RADAR ===== -->
+  <section class="page" id="page-competitors">
+    <div class="page-header">
+      <h2>🎯 Competitor Radar</h2>
+      <p>Track up to 10 competitors with AI-powered side-by-side analysis.</p>
+    </div>
+    <div class="stats-grid" id="compStats"></div>
+    <div class="grid-2">
+      <div class="glass-card">
+        <div class="card-header"><h3>📊 Growth Comparison</h3><span class="card-badge">Elo Rating</span></div>
+        <div class="chart-container"><canvas id="compGrowthChart"></canvas></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>⚔️ Engagement Battle</h3><span class="card-badge">vs Niche Avg</span></div>
+        <div class="chart-container"><canvas id="compEngageChart"></canvas></div>
+      </div>
+    </div>
+    <div class="glass-card">
+      <div class="card-header"><h3>🏆 Competitor Leaderboard</h3><span class="card-badge">Elo Ranked</span></div>
+      <table class="data-table" id="compTable"><thead><tr><th>Rank</th><th>Channel</th><th>Subs</th><th>Views/mo</th><th>Elo</th><th>Content Gap</th></tr></thead><tbody></tbody></table>
+    </div>
+  </section>
+
+  <!-- ===== GROWTH SIMULATOR ===== -->
+  <section class="page" id="page-simulator">
+    <div class="page-header">
+      <h2>🔮 Growth Simulator</h2>
+      <p>Model Predictive Control — see how strategy changes affect your trajectory.</p>
+    </div>
+    <div class="glass-card" style="margin-bottom:24px">
+      <div class="card-header"><h3>⚙️ Strategy Controls</h3><span class="card-badge">MPC Engine</span></div>
+      <div id="simControls" style="display:grid;grid-template-columns:1fr 1fr;gap:20px"></div>
+      <button class="btn btn-primary" id="btnSimulate" style="margin-top:16px">🚀 Run Simulation</button>
+    </div>
+    <div class="grid-7-3">
+      <div class="glass-card">
+        <div class="card-header"><h3>📈 Growth Trajectory</h3><span class="card-badge">Kalman + MPC</span></div>
+        <div class="chart-container"><canvas id="simChart"></canvas></div>
+      </div>
+      <div class="glass-card">
+        <div class="card-header"><h3>🎯 Predicted Outcomes</h3></div>
+        <div id="simResults"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTENT PIPELINE ===== -->
+  <section class="page" id="page-pipeline">
+    <div class="page-header">
+      <h2>🔄 Content Pipeline</h2>
+      <p>Track every video from idea to published — never lose a project.</p>
+    </div>
+    <div class="stats-grid" id="pipelineStats"></div>
+    <div class="glass-card">
+      <div class="card-header"><h3>📋 Active Projects</h3><button class="btn btn-primary" id="btnAddProject" style="padding:6px 14px;font-size:0.78rem">+ New Project</button></div>
+      <div id="pipelineBoard"></div>
+    </div>
+  </section>
+
+  <!-- ===== AI ASSISTANT ===== -->
+  <section class="page" id="page-assistant">
+    <div class="page-header">
+      <h2>🤖 AI Assistant</h2>
+      <p>Talk to your channel like talking to a co-pilot.</p>
+    </div>
+    <div class="glass-card" style="padding:0;overflow:hidden">
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg ai">Hey! I'm your StreamPilot AI assistant. Ask me anything about your channel — titles, SEO, analytics, stream setup, or just say <strong>"optimize my next video"</strong> to get started. 🚀</div>
+        </div>
+        <div class="chat-input-bar">
+          <input type="text" id="chatInput" placeholder="Ask AI anything... e.g. 'When should I go live this week?'">
+          <button class="btn btn-primary" id="btnChatSend">Send</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script src="app.js"></script>
+
+<!-- API BRIDGE: Connecting Frontend UI to Python Backend -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const escapeBridgeHtml = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[ch]));
+    // 1. Fetch real channel data from Python REST API
+    fetch('/api/dashboard')
+        .then(res => res.json())
+        .then(data => {
+            console.log("Fetched Python Data:", data);
+
+            // Update Channel Name globally
+            const nameEls = document.querySelectorAll('.user-name');
+            nameEls.forEach(el => el.textContent = data.channel_name || "StreamPilot User");
+
+            // Update the dashboard cards with REAL data!
+            setTimeout(() => {
+                const statValues = document.querySelectorAll('#mainStats .stat-value');
+                if (statValues.length >= 4) {
+                    // Card 2 is Subscribers
+                    if(data.real_subscribers) statValues[1].textContent = new Intl.NumberFormat().format(data.real_subscribers);
+                    // We can use Card 3 for Total Views instead of 'Watch Time'
+                    const labels = document.querySelectorAll('#mainStats .stat-label');
+                    if (labels.length >= 3) labels[2].textContent = "Total Channel Views";
+                    if (data.total_views) statValues[2].textContent = new Intl.NumberFormat().format(data.total_views);
+
+                    // Let's use Card 4 for Video Count instead of 'Revenue'
+                    if (labels.length >= 4) labels[3].textContent = "Total Videos";
+                    if (data.video_count) statValues[3].textContent = data.video_count;
+                }
+
+                // If there's an insight card or AI message, show the real Python insights
+                const insightBox = document.querySelector('.result-card p');
+                if (insightBox && data.insights && data.insights.length > 0) {
+                    insightBox.textContent = '';
+                    const label = document.createElement('strong');
+                    label.textContent = 'Real AI Insight:';
+                    insightBox.append(label, document.createTextNode(' ' + String(data.insights[0] ?? '')));
+                }
+            }, 600); // give app.js time to render the cards first
+        })
+        .catch(err => console.log("API not reachable yet, using mock data."));
+
+    // 2. Connect to Python WebSockets for Real-Time Telemetry
+    if (window.location.protocol !== 'file:' && window.location.host) {
+        const ws = new WebSocket(`ws://${window.location.host}/ws/telemetry`);
+
+        ws.onopen = () => {
+            console.log("Connected to StreamPilot Real-Time Engine");
+            const liveIndicator = document.querySelector('.realtime-dot');
+            if (liveIndicator) liveIndicator.style.background = '#10B981';
+        };
+
+        ws.onmessage = (event) => {
+            const telemetry = JSON.parse(event.data);
+            const statValues = document.querySelectorAll('#mainStats .stat-value');
+            if (statValues.length > 0) {
+                statValues[0].textContent = new Intl.NumberFormat().format(telemetry.concurrent_viewers) + " 🔴";
+                statValues[0].style.color = "#F43F5E"; // Red to show it's live viewers now
+                const labels = document.querySelectorAll('#mainStats .stat-label');
+                if (labels.length > 0) labels[0].textContent = "Live Concurrent Viewers";
+            }
+        };
+    }
+
+});
+</script>
+
+</body>
+</html>

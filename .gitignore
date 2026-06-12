@@ -1,0 +1,58 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+backend/client_secret*.json
+backend/token*.pickle
+backend/token.pickle*
+*.key
+*.pem
+*.p12
+
+# Python cache/test artifacts
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Frontend dependencies/build output
+node_modules/
+dist/
+build/
+
+# Local logs
+*.log
+.server*.log
+
+# Generated StreamPilot data and models
+backend/models/
+backend/.training_data/
+backend/.trend_data/
+backend/.trend_memory/
+backend/.tmp_uploads/
+*.joblib
+*.pkl
+*.pickle
+
+# Local databases and agent memory
+*.db
+*.sqlite
+*.sqlite3
+ruvector.db
+agentdb.rvf
+agentdb.rvf.lock
+
+# Local agent/runtime configuration
+.agents/
+.codex/
+.claude/
+.claude-flow/
+.swarm/
+.mcp.json
+AGENTS.md
+CLAUDE.md
