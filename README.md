@@ -121,6 +121,8 @@ Some real YouTube tests are skipped unless you explicitly enable them with local
 - Keep OBS WebSocket passwords private.
 - Review YouTube API quota usage before enabling real upload or trend scans.
 
+> ⚠️ **Project Status: Work in Progress (Not Complete)**  
+> StreamPilot AI is currently under active development. Core dashboard interfaces and local architecture are scaffolded, but end-to-end ML pipelines, live OBS WebSocket triggers, and live YouTube API synchronization are still being finalized and tested. Some features may be unstable or non-functional in this release.
 ## 📄 License
 
 This project is licensed under the MIT License. See `LICENSE` for details.
